@@ -1,17 +1,44 @@
 ﻿@{
-    ViewData["Title"] = "Contact 2 ";
+    ViewData["Title"] = "تماس با ما";
 }
-<h2>@ViewData["Title"]</h2>
-<h3>@ViewData["Message"]</h3>
+@section Head{
+    <meta name="description" content="وب سایت دیجی مووی برترین وب سایت در زمینه فیلم و سریال - @ViewData["Title"]" />
+}
 
-<address>
-    One Microsoft Way<br />
-    Redmond, WA 98052-6399<br />
-    <abbr title="Phone">P:</abbr>
-    425.555.0100
-</address>
+<div class="row">
+    <div class="md">
+        <h2>@ViewData["Title"]</h2>
+    </div>
+</div>
 
-<address>
-    <strong>Support:</strong> <a href="mailto:Support@example.com">Support@example.com</a><br />
-    <strong>Marketing:</strong> <a href="mailto:Marketing@example.com">Marketing@example.com</a>
-</address>
+
+<form asp-action="ContactProcess" method="get">
+    <div class="form-group row">
+        <div class="col-md-6 text-right">
+            <label for="name" class="col-form-label">نام : </label>
+            <input type="text" required class="form-control" id="name" name="name" placeholder="نام خود را وارد نمایید">
+        </div>
+        <div class="col-md-6 text-right">
+            <label for="email" class="col-form-label">پست الکترونیکی : </label>
+            <input type="email" required class="form-control" id="email" name="email" placeholder="ایمیل خود را وارد نمایید">
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <div class="col-md-6 text-right">
+            <label for="subject" class="col-form-label">موضوع : </label>
+            <input type="text" required class="form-control" id="subject" name="subject" placeholder="موضوع پیام را وارد نمایید">
+        </div>
+        <div class="col-md-6 text-right">
+            <label for="body" class="col-form-label">بدنه : </label>
+            <textarea class="form-control" required id="body" name="body" rows="5" placeholder="متن پیام خود را وارد نمایید"></textarea>
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="col-md text-right">
+            <button type="submit" class="btn btn-success">ارسال
+                <i class="fa fa-paper-plane" aria-hidden="true"></i>
+            </button>
+        </div>
+    </div>
+    </form>

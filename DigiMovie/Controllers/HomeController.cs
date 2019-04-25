@@ -17,17 +17,24 @@ namespace DigiMovie.Controllers
 
         public IActionResult About()
         {
-            ViewData["Message"] = "Your application description page.";
-
             return View();
         }
 
         public IActionResult Contact()
         {
-            ViewData["Message"] = "Your contact page.";
+            return View();
+        }
+
+        public IActionResult ContactProcess()
+        {
+            var name = Request.Query["name"].ToString();
+            var email = Request.Query["email"].ToString();
+            var subject = Request.Query["subject"].ToString();
+            var body = Request.Query["body"].ToString();
 
             return View();
         }
+
 
         public IActionResult Privacy()
         {
